@@ -10,6 +10,7 @@ $lightGreen: #b9e7e7;
       text-decoration: none;
       color: inherit;
     }
+
     /* LOgin & register */
     .auth {
       display: flex;
@@ -64,6 +65,7 @@ $lightGreen: #b9e7e7;
       }
     }
 
+    /* Navbar */
     .navbar {
       .container {
         padding: 10px 0px;
@@ -112,6 +114,7 @@ $lightGreen: #b9e7e7;
       }
     }
 
+    /* Footer */
     footer {
       margin-top: 100px;
       padding: 20px;
@@ -136,15 +139,126 @@ $lightGreen: #b9e7e7;
 
         .post {
           display: flex;
+          gap: 100px;
+
+          &:nth-child(2n + 1) {
+            flex-direction: row-reverse;
+          }
 
           .img {
-            flex: 1;
+            flex: 2;
+            position: relative;
+
+            &::after {
+              content: "";
+              width: 100%;
+              height: 100%;
+              background-color: $lightGreen;
+              position: absolute;
+              top: 20px;
+              left: -20px;
+              z-index: -1;
+            }
+
+            img {
+              width: 100%;
+              max-height: 400px;
+              object-fit: cover;
+            }
           }
 
           .content {
-            flex: 2;
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            h1 {
+              font-size: 48px;
+            }
+
+            p {
+              font-size: 18px;
+            }
+
+            button {
+              width: max-content;
+              padding: 10px 20px;
+              border: none;
+              cursor: pointer;
+              background-color: white;
+              border: 1px solid teal;
+              color: teal;
+
+              &:hover {
+                border: 1px solid white;
+                background-color: $lightGreen;
+                color: black;
+                font-weight: 500;
+              }
+            }
           }
         }
+      }
+    }
+
+    /* Single page */
+    .single {
+      display: flex;
+      gap: 50px;
+
+      .content {
+        flex: 5;
+        display: flex;
+        flex-direction: column;
+
+        img {
+          width: 100%;
+          height: 300px;
+          object-fit: cover;
+        }
+
+        .user {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 14px;
+
+          img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+          span {
+            font-weight: bold;
+          }
+        }
+
+        .edit {
+          display: flex;
+          gap: 5px;
+
+          img {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+          }
+        }
+
+        h1 {
+          font-size: 42px;
+          color: #333;
+        }
+
+        p {
+          text-align: justify;
+          line-height: 30px;
+        }
+      }
+
+      .menu {
+        flex: 2;
       }
     }
   }
